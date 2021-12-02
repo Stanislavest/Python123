@@ -283,6 +283,8 @@ import os
 # --all
 # *.py
 # .
+# git commit -m "first commit"
+# gitignore
 
 print("Hello")
 
