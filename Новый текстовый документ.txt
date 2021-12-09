@@ -1,0 +1,6 @@
+git config --global user.name "Name"
+git config --global user.email "my@mail.ru"
+
+git remote add origin https://github.com/Helen-prog/Python123.git
+
+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

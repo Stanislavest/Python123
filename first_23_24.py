@@ -285,6 +285,7 @@ import os
 # .
 # git commit -m "first commit"
 # gitignore
+# git merge readme
 
 print("Hello")
 
