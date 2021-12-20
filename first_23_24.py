@@ -280,7 +280,7 @@ import os
 # git init
 # git status
 # git add -A
-# --all
+# --allgit
 # *.py
 # .
 # git commit -m "first commit"
