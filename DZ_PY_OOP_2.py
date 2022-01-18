@@ -30,10 +30,10 @@ class Line(Koren):
 
 class Quad(Koren):
     def q_ur(self, a, b, c):
-        d = b ** 2 - 4 * a * c
+        d = b ** 2 + 4 * a * c
         if d > 0:
-            x1 = (b - math.sqrt(d) / (a * 2))
-            x2 = (b + math.sqrt(d) / (a * 2))
+            x1 = (- b - math.sqrt(d) / (a * 2))
+            x2 = (- b + math.sqrt(d) / (a * 2))
             print(f'The roots of "1x^2-2x-3=0" are: {x1}, {x2}')
         elif d == 0:
             x = b / (a * 2)
@@ -48,7 +48,7 @@ class Quad(Koren):
 q1 = Line()
 q1.l_ur(3, 7)
 q2 = Quad()
-q2.q_ur(1, -2, -3)
+q2.q_ur(1, 2, 3)
 
 
 
