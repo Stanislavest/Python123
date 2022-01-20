@@ -69,3 +69,21 @@ q2.q_ur(1, 2, 3)
 # q = Queen()
 # q.draw()
 # q.move()
+
+#==============================================================
+# class Quadratic(Root):
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#     def calc(self):
+#         d = self.b ** 2 + 4 * self.a * self.c
+#         if d > 0:
+#             x1 = (self.b + math.sqrt(d)) / (2 * self.a)
+#             x2 = (self.b - math.sqrt(d)) / (2 * self.a)
+#             print(f"The roots of '1x^2-2x-3=0' are: {x1}, {x2}")
+#         elif d == 0:
+#             x = self.b / (2 * self.a)
+#             print(f"Корень = {x}")
+#         else:
+#             print("Корней нет")
