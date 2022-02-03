@@ -539,26 +539,30 @@
 
 # ==============================================================
 
-class MyMetaClass(type):
-    def __new__(mcs, name, bases, attr):
-        print("Создание нового объекта", name)
-        return super(MyMetaClass, mcs).__new__(mcs, name, bases, attr)
+# class MyMetaClass(type):
+#     def __new__(mcs, name, bases, attr):
+#         print("Создание нового объекта", name)
+#         return super(MyMetaClass, mcs).__new__(mcs, name, bases, attr)
+#
+#     def __init__(cls, name, bases, attr):
+#         print("Инициализация класса", name)
+#         super(MyMetaClass, cls).__init__(name, bases, attr)
+#
+#
+# class Student(metaclass=MyMetaClass):
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def get_name(self):
+#         return self.name
+#
+#
+# stud = Student("Anna")
+# print(stud.get_name())
+# print(type(stud))
+# print(type(Student))
 
-    def __init__(cls, name, bases, attr):
-        print("Инициализация класса", name)
-        super(MyMetaClass, cls).__init__(name, bases, attr)
 
-
-class Student(metaclass=MyMetaClass):
-    def __init__(self, name):
-        self.name = name
-
-    def get_name(self):
-        return self.name
-
-
-stud = Student("Anna")
-print(stud.get_name())
-print(type(stud))
-print(type(Student))
-
+# import first_35_36_OOP
+#
+# first_35_36_OOP.main()
