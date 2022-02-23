@@ -15,9 +15,13 @@ def write_csv(data):
 
 def get_data(html):
     soup = BeautifulSoup(html, "lxml")
-    p1 = soup.find("div class", id="col-md-6 col-lg-4 col-xl-3").find("div class", class_="categories-banner-name-div").text
-    return p1
 
+    p1 = soup.find("div", class_="row no-gutters")
+    # write_csv(p1.text)  # не записывает в файл, но данные выводит (текст из блоков)
+    for i in p1:
+        print(i.text)
+
+    # return p1
 
 def main():
     url = "https://www.4pc.by/"
