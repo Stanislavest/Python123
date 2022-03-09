@@ -34,8 +34,15 @@
 #     )
 #     """)
 
-# =========================================
+# ========================================= 3.03.2022
+import sqlite3 as sq
 
+with sq.connect("users.db") as con:
+    cur = con.cursor()
+    cur.execute("""
+    INSERT INTO person
+    VALUES (10, "Olga", "+79991112233", "23", "test@mail.ru")
+    """)
 
 
 

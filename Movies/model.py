@@ -13,7 +13,7 @@ class Article:
         self.actors = actors
 
     def __str__(self):
-        return f"{self.name} ({self.ganre})"
+        return f"{self.name} ({self.stl})"
 
 
 class ArticleModel:
