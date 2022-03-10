@@ -1,0 +1,121 @@
+{\rtf1\ansi\ansicpg1251\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset204 Bahnschrift;}{\f1\fnil\fcharset0 Bahnschrift;}}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard 
+{\pntext\f1 1.\tab}{\*\pn\pnlvlbody\pnf1\pnindent360\pnstart1\pndec{\pntxta.}}
+\fi-360\li720\f0\fs24\lang1049\'cf\'ee\'ea\'e0\'e7\'e0\'f2\'fc\f1  \f0\'ea\'e0\'ea\'e8\'e5\f1  \f0\'ef\'f0\'ee\'e4\'e0\'e2\'f6\'fb\f1  \f0\'ef\'f0\'ee\'e4\'e0\'fe\'f2\f1  \f0\'ea\'e0\'ea\'e8\'e5\f1  \f0\'f2\'ee\'e2\'e0\'f0\'fb\f1 . \par
+
+\pard\f0      \f1 SELECT s.Seller, sg.Goods\par
+\f0      \f1 FROM Seller s, SallerGoods sg\par
+\f0      \f1 WHERE s.INNSeller=sg.INNSeller\par
+
+\pard\widctlpar\li720\par
+
+\pard\widctlpar\fi-360\li720 2.\tab\f0\'c2\'fb\'e2\'e5\'f1\'f2\'e8\f1  \f0\'ef\'f0\'ee\'e4\'e0\'e2\'f6\'ee\'e2\f1  \f0\'e8\f1  \f0\'ea\'eb\'e8\'e5\'ed\'f2\'ee\'e2\f1  (\f0\'ef\'e0\'f0\'fb\f1 ), \f0\'f1\'e2\'ff\'e7\'e0\'ed\'ed\'fb\'e5\f1  \f0\'ec\f1 /\f0\'f3\f1  \f0\'f1\'ee\'e1\'ee\'e9\f1  \f0\'ef\'f0\'e8\'ee\'e1\'f0\'e5\'f2\'e5\'ed\'ed\'fb\'ec\f1  \f0\'f2\'ee\'e2\'e0\'f0\'ee\'ec\f1 .\par
+SELECT c.Client, s.Seller\par
+FROM Seller s, SallerGoods sg, Client c, ClientGoods cg\par
+WHERE s.INNSeller=sg.INNSeller AND sg.ID=cg.ID AND cg.INNClient=c.INNClient\par
+
+\pard\widctlpar\li720\par
+
+\pard\widctlpar\fi-360\li720 3.\tab\f0\'c2\'fb\'e2\'e5\'f1\'f2\'e8\f1  \f0\'e4\'e0\'ed\'ed\'fb\'e5\f1  \f0\'ee\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e5\f1  \f0\'e2\f1  \f0\'e0\'eb\'f4\'e0\'e2\'e8\'f2\'ed\'ee\'ec\f1  \f0\'ef\'ee\'f0\'ff\'e4\'ea\'e5\f1 .\par
+SELECT Goods\par
+FROM SallerGoods\par
+ORDER BY Goods\par
+
+\pard\widctlpar\li720\par
+
+\pard\widctlpar\fi-360\li720 4.\tab\f0\'c2\'fb\'e2\'e5\'f1\'f2\'e8\f1  \f0\'ef\'ee\'f1\'f0\'e5\'e4\'ed\'e8\'ea\'ee\'e2\f1 , \f0\'ef\'ee\'f1\'f2\'e0\'e2\'eb\'ff\'fe\'f9\'e8\'f5\f1  \f0\'f2\'ee\'e2\'e0\'f0\f1  \f0\'e4\'eb\'ff\f1  \f0\'f4\'e8\'f0\'ec\'fb\f1 .\par
+SELECT Seller, Status\par
+FROM Seller\par
+WHERE Status LIKE "\f0\'ef\'ee\'f1\'f0\'e5\'e4\'ed\'e8\'ea\f1 "\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720 5.\tab\f0\'c2\'fb\'e2\'e5\'f1\'f2\'e8\f1  \f0\'f1\'ef\'e8\'f1\'ee\'ea\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e0\f1 , \f0\'ef\'ee\'f1\'f2\'e0\'e2\'eb\'ff\'e5\'ec\'ee\'e3\'ee\f1  \f0\'ef\'f0\'ee\'e8\'e7\'e2\'ee\'e4\'e8\'f2\'e5\'eb\'ff\'ec\'e8\f1 .\par
+SELECT sg.Goods, s.Status\par
+FROM Seller s, SallerGoods sg\par
+WHERE sg.INNSeller=s.INNSeller AND s.Status='\f0\'ef\'f0\'ee\'e8\'e7\'e2\'ee\'e4\'e8\'f2\'e5\'eb\'fc\f1 '\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720 6.\tab\f0\'cd\'e0\f1  \f0\'ea\'e0\'ea\'f3\'fe\f1  \f0\'f1\'f3\'ec\'ec\'f3\f1  \f0\'e1\'fb\'eb\'ee\f1  \f0\'e2\'f1\'e5\'e3\'ee\f1  \f0\'ea\'f3\'ef\'eb\'e5\'ed\'ee\f1  \f0\'ea\'e0\'e6\'e4\'ee\'e3\'ee\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e0\f1  \f0\'f4\'e8\'f0\'ec\'ee\'e9\f1 .\par
+SELECT sg.CostUnit*sg.Count AS [\f0\'d1\'f3\'ec\'ec\'e0\f1 ]\par
+FROM SallerGoods sg\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720 *** 7.\tab\f0\'cd\'e0\f1  \f0\'ea\'e0\'ea\'f3\'fe\f1  \f0\'f1\'f3\'ec\'ec\'f3\f1  \f0\'e1\'fb\'eb\'ee\f1  \f0\'ef\'f0\'ee\'e4\'e0\'ed\'ee\f1  \f0\'ea\'e0\'e6\'e4\'ee\'e3\'ee\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e0\f1  \f0\'ec\'e0\'e3\'e0\'e7\'e8\'ed\'e0\'ec\f1 .\par
+SELECT cg.CostUnit*cg.Count AS [\f0\'d1\'f3\'ec\'ec\'e0]\par
+FROM Client c, ClientGoods cg\par
+WHERE c.INNClient=cg.INNClient AND c.Status = "\'ec\'e0\'e3\'e0\'e7\'e8\'ed";\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720\lang1033 *** \lang1049 8.\tab\f0\'c2\'fb\'e2\'e5\'e4\'e8\'f2\'e5\f1  \f0\'f1\'ef\'e8\'f1\'ee\'ea\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e0\f1 , \f0\'ef\'f0\'ee\'e4\'e0\'ed\'ed\'ee\'e3\'ee\f1  \f0\'e2\f1  \f0\'ea\'e0\'f4\'e5\f1 .\par
+SELECT sg.Goods AS [\f0\'cf\'f0\'ee\'e4. \'ea\'e0\'f4\'e5]\par
+FROM Client c, ClientGoods cg, SallerGoods sg\par
+WHERE c.INNClient=cg.INNClient AND cg.ID=sg.ID AND c.Status = "\'ea\'e0\'f4\'e5";\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720\lang1033 *** \lang1049 9.\tab\f0\'ce\'ef\'f0\'e5\'e4\'e5\'eb\'e8\'f2\'fc\f1  \f0\'ea\'e0\'ea\'ee\'e9\f1  \f0\'f2\'ee\'e2\'e0\'f0\f1  \f0\'e1\'fb\'eb\f1  \f0\'ea\'f3\'ef\'eb\'e5\'ed\f1  \f0\'f3\f1  \f0\'ef\'ee\'f1\'f0\'e5\'e4\'ed\'e8\'ea\'ee\'e2\f1 .\par
+SELECT sg.Goods\par
+FROM SallerGoods sg, Seller s\par
+WHERE sg.INNSeller=s.INNSeller AND s.Status IS "\f0\'ef\'ee\'f1\'f0\'e5\'e4\'ed\'e8\'ea";\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720 *** 10.\tab\f0\'cd\'e0\'ef\'e8\'f1\'e0\'f2\'fc\f1  \f0\'e7\'e0\'ef\'f0\'ee\'f1\f1 , \f0\'ea\'ee\'f2\'ee\'f0\'fb\'e9\f1  \f0\'e2\'fb\'e2\'ee\'e4\'e8\'f2\f1  \f0\'ed\'e0\'e7\'e2\'e0\'ed\'e8\'e5\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e0\f1  \f0\'e8\f1  \f0\'ef\'f0\'e8\'e1\'fb\'eb\'fc\f1 , \f0\'ef\'ee\'eb\'f3\'f7\'e5\'ed\'ed\'f3\'fe\f1  \f0\'ee\'f2\f1  \f0\'e5\'e3\'ee\f1  \f0\'ef\'f0\'ee\'e4\'e0\'e6\'e8\f1  (\f0\'ef\'f0\'e8\f1  \f0\'ef\'f0\'ee\'e4\'e0\'e6\'e5\f1  \f0\'e2\'f1\'e5\'f5\f1  \f0\'e5\'e4\'e8\'ed\'e8\'f6\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e0\f1 ).\par
+SELECT sg.Goods, sg.CostUnit*sg.Count-cg.CostUnit*cg.Count AS [\f0\'cf\'f0\'e8\'e1\'fb\'eb\'fc]\par
+FROM ClientGoods cg, SallerGoods sg, Seller s\par
+WHERE sg.INNSeller=s.INNSeller AND cg.ID=sg.ID;\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720\lang1033 *** \lang1049 11.\tab  \f0\'ce\'ef\'f0\'e5\'e4\'e5\'eb\'e8\'f2\'e5\f1  \f0\'ea\'e0\'ea\'e8\'e5\f1  \f0\'ea\'eb\'e8\'e5\'ed\'f2\'fb\f1  \f0\'ed\'e5\f1  \f0\'ef\'ee\'ea\'f3\'ef\'e0\'eb\'e8\f1  \f0\'ef\'ee\'e4\'f1\'ee\'eb\'ed\'e5\'f7\'ed\'ee\'e5\f1  \f0\'ec\'e0\'f1\'eb\'ee\f1 .\par
+SELECT c.Client, c.Status\par
+FROM Client c, ClientGoods cg, SallerGoods sg\par
+WHERE cg.INNClient=c.INNClient AND cg.ID=sg.ID AND sg.Goods IS NOT "\f0\'ec\'e0\'f1\'eb\'ee \'ef\'ee\'e4\'f1\'ee\'eb\'ed\'e5\'f7\'ed\'ee\'e5";\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720 12.\tab\f0\'ce\'ef\'f0\'e5\'e4\'e5\'eb\'e8\'f2\'e5\f1  \f0\'ef\'ee\'f1\'f2\'e0\'e2\'f9\'e8\'ea\'ee\'e2\f1 , \f0\'f1\'e4\'e5\'eb\'ea\'e8\f1  \f0\'f1\f1  \f0\'ea\'ee\'f2\'ee\'f0\'fb\'ec\'e8\f1  \f0\'e7\'e0\'ea\'eb\'fe\'f7\'e8\'eb\'e8\f1  10-11/11/2007.\par
+SELECT s.Seller\par
+FROM SallerGoods sg, Seller s\par
+WHERE s.INNSeller=sg.INNSeller AND sg.DateStart BETWEEN '2007-11-10' AND '2007-11-11'\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720\lang1033 *** \lang1049 13.\tab\f0\'cf\'ee\'ea\'e0\'e7\'e0\'f2\'fc\f1  \f0\'ea\'ee\'e4\f1  \f0\'e8\f1  \f0\'ed\'e0\'e8\'ec\'e5\'ed\'ee\'e2\'e0\'ed\'e8\'e5\f1  \f0\'f2\'ee\'e2\'e0\'f0\'e0\f1 , \f0\'ea\'f3\'ef\'eb\'e5\'ed\'ed\'ee\'e3\'ee\f1  \f0\'ef\'ee\'f1\'f0\'e5\'e4\'ed\'e8\'ea\'e0\'ec\'e8\f1 .\par
+SELECT sg.Code, sg.Goods\par
+FROM Client c, ClientGoods cg, SallerGoods sg\par
+WHERE cg.INNClient=c.INNClient AND cg.ID=sg.ID AND c.Status IS "\f0\'ef\'ee\'f1\'f0\'e5\'e4\'ed\'e8\'ea";\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720\lang1033 *** \lang1049 14.\tab\f0\'c2\'fb\'e2\'e5\'f1\'f2\'e8\f1  \f0\'f1\'ef\'e8\'f1\'ee\'ea\f1  \f0\'ea\'eb\'e8\'e5\'ed\'f2\'ee\'e2\f1  \f0\'e8\f1  \f0\'f1\'f3\'ec\'ec\'f3\f1  \f0\'ef\'f0\'e8\'e1\'fb\'eb\'e8\f1  \f0\'e7\'e0\f1  \f0\'ea\'e0\'e6\'e4\'fb\'e9\f1  \f0\'f2\'ee\'e2\'e0\'f0\f1 , \f0\'ef\'ee\'eb\'f3\'f7\'e5\'ed\'ed\'f3\'fe\f1  \f0\'ee\'f2\f1  \f0\'ef\'f0\'ee\'e4\'e0\'e6\'e8\f1  \f0\'f7\'e5\'f0\'ed\'ee\'e3\'ee\f1  \f0\'ef\'e5\'f0\'f6\'e0\f1 .\par
+SELECT c.Client, c.Status, cg.CostUnit*cg.Count \par
+FROM Client c, ClientGoods cg, SallerGoods sg\par
+WHERE cg.INNClient=c.INNClient AND cg.ID=sg.ID AND sg.Goods LIKE "\f0\'cf\'e5\'f0\'e5\'f6 \'f7\'e5\'f0\'ed\'fb\'e9%"\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720\lang1033 *** \lang1049 15.\tab  \f0\'c2\'fb\'e2\'e5\'e4\'e8\'f2\'e5\f1  \f0\'f1\'ef\'e8\'f1\'ee\'ea\f1  \f0\'f2\'ee\'e2\'e0\'f0\'ee\'e2\f1  \f0\'e2\f1  \f0\'ee\'e1\'f0\'e0\'f2\'ed\'ee\'ec\f1  \f0\'ef\'ee\'f0\'ff\'e4\'ea\'e5\f1 , \f0\'e5\'f1\'eb\'e8\f1  \f0\'f2\'ee\'e2\'e0\'f0\f1  \f0\'ea\'f3\'ef\'eb\'e5\'ed\f1  \f0\'f3\f1  \f0\'ef\'f0\'ee\'e8\'e7\'e2\'ee\'e4\'e8\'f2\'e5\'eb\'ff\f1  \f0\'e8\f1  \f0\'ef\'f0\'ee\'e4\'e0\'ed\f1  \f0\'e2\f1  \f0\'ea\'e0\'f4\'e5\f1 .\par
+SELECT sg.Goods \par
+FROM Client c,ClientGoods cg, SallerGoods sg, Seller s\par
+WHERE cg.INNClient=c.INNClient AND cg.ID=sg.ID AND sg.INNSeller=s.INNSeller AND s.Status IS "\f0\'ef\'f0\'ee\'e8\'e7\'e2\'ee\'e4\'e8\'f2\'e5\'eb\'fc" AND c.Status IS "\'ea\'e0\'f4\'e5"\par
+ORDER BY sg.Goods DESC;\f1\par
+
+\pard\widctlpar\par
+
+\pard\widctlpar\fi-360\li720\lang1033 *** \lang1049 16.\tab\f0\'c2\'fb\'e2\'e5\'f1\'f2\'e8\f1  \f0\'f1\'ef\'e8\'f1\'ee\'ea\f1  \f0\'f2\'ee\'e2\'e0\'f0\'ee\'e2\f1 , \f0\'e5\'f1\'eb\'e8\f1  \f0\'f4\'e8\'f0\'ec\'e0\f1  \f0\'ea\'f3\'ef\'e8\'eb\'e0\f1  \f0\'e8\'f5\f1  \f0\'ed\'e0\f1  \f0\'f1\'f3\'ec\'ec\'f3\f1  \f0\'e1\'ee\'eb\'fc\'f8\'e5\f1  1000.\par
+SELECT sg.Goods \par
+FROM ClientGoods cg, SallerGoods sg\par
+WHERE cg.ID=sg.ID AND sg.CostUnit*sg.Count>1000 ;\par
+\par
+
+\pard\widctlpar\par
+
+\pard\sa200\sl276\slmult1\fs22\lang9\par
+}
+ 
