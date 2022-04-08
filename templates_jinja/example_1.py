@@ -79,28 +79,28 @@
 # print(msg)
 
 # ==================================================== HOME WORK ===
-from jinja2 import Template
-
-menu=[
-    {'href': '/index', 'link': 'Главная'},
-    {'href': '/news', 'link': 'Новости'},
-    {'href': '/about', 'link': 'О компании'},
-    {'href': '/shop', 'link': 'Магазин'},
-    {'href': '/contacts', 'link': 'Контакты'},
-]
-
-link="""<ul> 
-<li><a href="/index" class="active">Глвная</a></li>
-{% for m in menu[1:]-%}
-    <li><a href="{{ m['href'] }}">{{ m['link'] }}</a></li>
-{% endfor -%}
-</ul>
-"""
-
-tm=Template(link)
-msg = tm.render(menu=menu)
-
-print(msg)
+# from jinja2 import Template
+#
+# menu=[
+#     {'href': '/index', 'link': 'Главная'},
+#     {'href': '/news', 'link': 'Новости'},
+#     {'href': '/about', 'link': 'О компании'},
+#     {'href': '/shop', 'link': 'Магазин'},
+#     {'href': '/contacts', 'link': 'Контакты'},
+# ]
+#
+# link="""<ul>
+# <li><a href="/index" class="active">Глвная</a></li>
+# {% for m in menu[1:]-%}
+#     <li><a href="{{ m['href'] }}">{{ m['link'] }}</a></li>
+# {% endfor -%}
+# </ul>
+# """
+#
+# tm=Template(link)
+# msg = tm.render(menu=menu)
+#
+# print(msg)
 
 # ==================================================================
 # from jinja2 import Template
@@ -187,7 +187,140 @@ print(msg)
 # msg = tm.render(sc=cars)
 # print(msg)
 
+# ============================== 22.03.2022
+# from jinja2 import Template
+#
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.0},
+# ]
+# # {% filter upper %}{{ u.name }}{% endfilter %}
+# tpl = """
+# {%- for u in users -%}
+# {# {% filter upper %}{{ u.name }}{% endfilter %} #}
+# {% filter string %}{{ u.year }} - {{ u.weight }}{% endfilter %}
+# {% endfor %}
+# """
+#
+# tm = Template(tpl)
+# msg = tm.render(users=persons)
+# print(msg)
+
+# =================================================== macro-определение
+# from jinja2 import Template
+#
+# # persons = [
+# #     {"name": "Алексей", "year": 18, "weight": 78.5},
+# #     {"name": "Никита", "year": 28, "weight": 82.3},
+# #     {"name": "Виталий", "year": 33, "weight": 94.0},
+# # ]
+#
+# html = """
+# {%- macro input(name, value='', type='text', size='20') -%}
+#     <input type='{{ type }}' name='{{ name }}' value='{{ value }}'>
+# {%- endmacro %}
+#
+# <p> {{ input('username', 'Введите имя') }} </p>
+# <p> {{ input('email', 'Введите email') }} </p>
+# <p> {{ input('password') }} </p>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+# print(msg)
 
 
+# ===================================================
+# from jinja2 import Template
+#
+# html = """
+# {%- macro input(name, placeholder, type='text', size='20') -%}
+# <input type="{{ type }}" name="{{ name }}" placeholder="{{ placeholder }}">
+# {%- endmacro %}
+# <p>{{ input("firstname", "Имя") }}</p>
+# <p>{{ input("lastname", "Фамилия") }}</p>
+# <p>{{ input("address", "Адрес") }}</p>
+# <p>{{ input("phone", "Телефон", "tel") }}</p>
+# <p>{{ input("email", "Почта", "email") }}</p>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+# print(msg)
 
+# ===================================================
+# from jinja2 import Template
+#
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.0},
+# ]
+#
+# html = """
+# {% macro list_users(lst) %}
+# <ul>
+# {% for u in lst -%}
+#     <li>{{ u.name }}</li>
+# {% endfor -%}
+# </ul>
+# {%- endmacro %}
+#
+# {{ list_users(users) }}
+# """
+#
+# tm = Template(html)
+# msg = tm.render(users=persons)
+# print(msg)
+
+# ===================================================
+# from jinja2 import Template
+#
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.0},
+# ]
+#
+# html = '''
+# {% macro list_users(users) %}
+# <ul>
+# {% for u in users -%}
+#     <li>{{ u.name }} {{ caller(u) }}</li>
+# {% endfor -%}
+# </ul>
+# {%- endmacro %}
+#
+# {% call(user) list_users(users) %}
+#     <ul>
+#         <li>age: {{ user.year }}</li>
+#         <li>weight: {{ user.weight }}</li>
+#     </ul>
+# {% endcall %}
+# '''
+#
+# tm = Template(html)
+# msg = tm.render(users=persons)
+#
+# print(msg)
+
+# ===================================================
+from jinja2 import Environment, FileSystemLoader
+
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.0},
+# ]
+
+subs = ["Культура", "Наука", "Политика", "Спорт"]
+
+file_loader = FileSystemLoader('templates')
+env = Environment(loader=file_loader)
+
+tm = env.get_template('about.html')
+msg = tm.render(list_table=subs)
+
+print(msg)
 
